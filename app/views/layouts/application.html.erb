@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Site</title>
+  <title><%= title %></title>
+  <meta charset="utf-8" />
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<header>
+<h1>Ruby on Rails 3</h1>
+<p><em>Лучший фреймворк для создания сайта...</em></p>
+</header>
 
+<div id="wrapper">
+    <div id="sidebar">
+    <h4>Меню</h4>
+    <ul class="menu">
+	<li><%= link_to "Главня", :conroller => 'static_pages', :action => 'index' %></li>
+	<li><%= link_to "Уроки", :controller => 'static_pages', :action => 'lections'%></li>
+	<li><%= link_to "О сайте", :controller => 'static_pages', :action => 'about' %></li>
+	<li><%= link_to "Статьи", :controller => 'static_pages', :acton => 'articles' %></li>
+	<li><%= link_to "FAQ", :controller => 'static_pages', :action => 'faq' %></li>
+    </ul>
+    <hr />
+    <ul>
+	<li>Пользователи</li>
+	<li>Популярное</li>
+	<li>Новое</li>
+    </li>
+    </div>
+    <div id="content">
+	<%= yield %>
+    </div>
+<div id="footer">
+    Kineeff 2013 &copy; school 48 Moscow
+</div>
+
+
+</div>
 </body>
 </html>
